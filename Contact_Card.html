@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact Card</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('form').submit(function() {
+                var first = $('#firstname').val();
+                var last = $('#lastname').val();
+                var description = $('textarea').val();
+                var newUser = "<div class='user' status='userInfo' descriptionInfo='" + description + "' firstname='" + first + "' lastname='" + last + "'><h2>" + first + " " + last + "</h2><h4>Click for description!</h4></div>";
+                $('#users').append(newUser);
+                return false;
+            });
+            $(document).on('click', '.user', function() {
+                if ($(this).attr('status') == "userInfo") {
+                    $(this).attr('status', 'description');
+                    $(this).append('<h3>' + $(this).attr('descriptionInfo') + "</h3>");
+                    $(this).children('h2, h4').remove();
+                }
+                else {
+                    $(this).append("<h2>" + $(this).attr("firstname") + " " + $(this).attr('lastname') + "</h2><h4>Click for description!</h4>");
+                    $(this).children('h3').remove();
+                    $(this).attr('status', 'userInfo');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <form>
+        First name: <input type="text" id="firstname">
+        Last name: <input type="text" id="lastname">
+        Description: <br>
+        <textarea id="description" placeholder="Enter description"></textarea>
+        <input type="submit" value="Add User">
+    </form>
+    <div id="users">
+    </div>
+    
+</body>
+</html>

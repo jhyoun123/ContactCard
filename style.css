@@ -1,0 +1,34 @@
+body {
+    width:900px;
+    margin: 0 auto;
+}
+
+form {
+    width: 45%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+input {
+    display: block;
+    margin-bottom: 20px;
+}
+
+#description {
+    margin-bottom: 20px;
+    height: 100px;
+    width: 200px;
+}
+
+#users {
+    width: 50%;
+    display: inline-block;
+}
+
+.user {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid black;
+    margin-bottom: 15px;
+}
